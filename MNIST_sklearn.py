@@ -11,4 +11,4 @@ score = logisticRegr.score(x_test, y_test)
 print(score)
 
 file1 = open("result.txt","w")
-file1.write(str(scores))
+file1.write(str(score))
