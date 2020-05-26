@@ -3,7 +3,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.utils import np_utils
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
-num_pixels = X_train.shape[1] * X_train.shape[2]
+unit1 = X_train.shape[1] * X_train.shape[2]
 X_train = X_train.reshape(X_train.shape[0], num_pixels)
 X_test = X_test.reshape(X_test.shape[0], num_pixels)
 X_train = X_train.astype('float32')
@@ -12,11 +12,11 @@ X_train /= 255
 X_test /= 255
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
-num_class=y_test.shape[1]
+unit2=y_test.shape[1]
 def baseline_model():
 	model = Sequential()
-	model.add(Dense(num_pixels, input_dim=num_pixels, activation='relu'))
-	model.add(Dense(num_class, activation='softmax'))
+	model.add(Dense(unit1, input_dim=unit1, activation='relu'))
+	model.add(Dense(unit, activation='softmax'))
 	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 	return model
 model = baseline_model()
