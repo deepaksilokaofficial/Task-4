@@ -20,7 +20,7 @@ def baseline_model():
 	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 	return model
 model = baseline_model()
-model.fit(x_train, y_train, validation_data=(X_test, y_test), epochs=5, batch_size=200, verbose=0)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=5, batch_size=200, verbose=0)
 scores = model.evaluate(X_test, y_test, verbose=0)
 print("Accuracy:  %.2f%%" % (scores[1]*100))
 file1 = open("result.txt","w+")
